@@ -391,12 +391,14 @@ const HomePage = () => {
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-12 mb-12">
             <div className="col-span-1">
-              <div className="flex flex-col items-center gap-3 mb-6 bg-gradient-to-br from-gray-800 to-gray-700 p-6 rounded-2xl shadow-[0_0_20px_rgba(16,185,129,0.2)] hover:shadow-[0_0_35px_rgba(16,185,129,0.4)] transition-all duration-300 w-fit mx-auto">
-                <img 
-                  src="/images/logos/new_logo.png" 
-                  alt="Nlist Planet Logo" 
-                  className="h-32 w-32 object-contain transform hover:scale-110 transition-transform duration-300"
-                />
+              <div className="flex flex-col items-center gap-3 mb-6 p-4 rounded-3xl bg-gradient-to-br from-[#071018] to-[#071622] border border-gray-800 shadow-lg w-fit mx-auto transform transition-transform duration-300 hover:scale-105">
+                <div className="rounded-full p-3 bg-gradient-to-tr from-emerald-500/10 to-teal-400/6 shadow-[0_8px_30px_rgba(16,185,129,0.08)] ring-1 ring-emerald-500/10 transition-all duration-300 hover:shadow-[0_16px_40px_rgba(16,185,129,0.12)]">
+                  <img
+                    src="/images/logos/new_logo.png"
+                    alt="Nlist Planet Logo"
+                    className="h-20 w-20 object-contain"
+                  />
+                </div>
               </div>
               <p className="text-gray-400 text-sm leading-relaxed text-center">
                 India's most trusted platform for buying and selling unlisted shares with complete transparency and security.
