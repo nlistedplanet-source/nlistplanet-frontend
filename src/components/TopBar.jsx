@@ -22,7 +22,7 @@ const TopBar = ({ title, showBack = false }) => {
   const isHomePage = location.pathname === '/';
 
   return (
-    <header className={`w-full fixed top-0 left-0 right-0 z-40 transition-all duration-300 backdrop-blur-md ${
+    <header className={`w-full ${isHomePage ? 'relative' : 'fixed'} top-0 left-0 right-0 z-40 transition-all duration-300 backdrop-blur-md ${
       isDashboardPage
         ? scrolled
           ? 'bg-white/80 border-b border-gray-200 shadow-sm'
