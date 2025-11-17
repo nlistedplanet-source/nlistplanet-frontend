@@ -388,9 +388,9 @@ const HomePage = () => {
 
       {/* Footer Section */}
       <style>{`
-        @keyframes floatSlow { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-8px); } }
+        @keyframes floatSlow { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-3px); } }
         @keyframes shimmer { 0% { background-position: -200% center; } 100% { background-position: 200% center; } }
-        .float-animate { animation: floatSlow 4s ease-in-out infinite; }
+        .float-animate { animation: floatSlow 6s ease-in-out infinite; }
         .shimmer-bg { background-size: 200% auto; animation: shimmer 8s linear infinite; }
       `}</style>
       <footer className="bg-gradient-to-r from-gray-900 to-gray-800 text-white py-16">
@@ -408,7 +408,7 @@ const HomePage = () => {
                       <img
                         src="/images/logos/new_logo.png"
                         alt="Nlist Planet Logo"
-                        className="h-16 w-16 object-contain"
+                        className="h-20 w-20 object-contain"
                       />
                     </div>
                   </div>

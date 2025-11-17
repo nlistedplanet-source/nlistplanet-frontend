@@ -34,19 +34,17 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-primary-600 to-primary-800 flex items-center justify-center px-4 py-12">
+    <div className="min-h-screen bg-white flex items-center justify-center px-4 py-12">
       <div className="w-full max-w-md">
-        {/* Logo */}
+        {/* Brand */}
         <div className="text-center mb-8">
-          <div className="inline-block bg-white rounded-2xl px-6 py-3 mb-4">
-            <span className="text-primary-600 font-bold text-3xl">USM</span>
-          </div>
-          <h1 className="text-3xl font-bold text-white mb-2">Welcome Back</h1>
-          <p className="text-primary-100">Login to your UnlistedHub account</p>
+          <img src="/images/logos/new_logo.png" alt="Nlist Planet" className="h-12 w-12 object-contain mx-auto mb-3" />
+          <h1 className="text-3xl font-bold text-dark-800 mb-1">Welcome back</h1>
+          <p className="text-dark-500">Login to your account</p>
         </div>
 
         {/* Login Form */}
-        <form onSubmit={handleSubmit} className="bg-white rounded-3xl p-6 shadow-2xl">
+        <form onSubmit={handleSubmit} className="bg-white rounded-2xl p-6 border border-dark-100 shadow-md">
           <div className="space-y-4">
             {/* Username/Email */}
             <div>
@@ -135,7 +133,7 @@ const LoginPage = () => {
         {/* Back to Home */}
         <button
           onClick={() => navigate('/')}
-          className="w-full mt-4 text-white text-center py-3"
+          className="w-full mt-4 text-dark-500 hover:text-dark-700 text-center py-3"
         >
           ← Back to Home
         </button>
