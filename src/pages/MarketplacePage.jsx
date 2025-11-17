@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Search, Filter, TrendingUp, Plus, Loader } from 'lucide-react';
-import { listingsAPI, companiesAPI } from '../utils/api';
+import { listingsAPI } from '../utils/api';
 import { useAuth } from '../context/AuthContext';
 import ListingCard from '../components/ListingCard';
 import CreateListingModal from '../components/CreateListingModal';
@@ -21,7 +21,22 @@ const MarketplacePage = () => {
   const [selectedListing, setSelectedListing] = useState(null);
 
   useEffect(() => {
-    fetchListings();
+    const load = async () => {
+      try {
+        setLoading(true);
+        const response = await listingsAPI.getAll({
+          type: activeTab,
+          sort: sortBy,
+          search: undefined,
+        });
+        setListings(response.data.data);
+      } catch (error) {
+        toast.error('Failed to fetch listings');
+      } finally {
+        setLoading(false);
+      }
+    };
+    load();
   }, [activeTab, sortBy]);
 
   const fetchListings = async () => {

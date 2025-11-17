@@ -36,7 +36,7 @@ const HomePage = () => {
   return (
     <div className="pb-20">
       {/* Hero Section */}
-      <div className="bg-gradient-to-br from-teal-50 via-cyan-50 to-emerald-50 pt-6 md:pt-8 pb-12 px-8 min-h-screen flex flex-col justify-between relative overflow-hidden">
+      <div className="bg-gradient-to-br from-teal-50 via-cyan-50 to-emerald-50 pt-20 md:pt-24 pb-12 px-8 min-h-screen flex flex-col justify-between relative overflow-hidden">
         <div className="absolute top-20 right-10 w-64 h-64 bg-emerald-200 rounded-full opacity-20 blur-3xl"></div>
         <div className="absolute bottom-20 left-10 w-96 h-96 bg-teal-200 rounded-full opacity-20 blur-3xl"></div>
         
@@ -311,14 +311,8 @@ const HomePage = () => {
       <div className="bg-gradient-to-br from-gray-50 via-blue-50 to-teal-50 py-20">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold text-gray-800 mb-4 flex items-center justify-center">
-              Why Choose 
-              <img 
-                src="/images/logos/new_logo.png" 
-                alt="Nlist Planet Logo" 
-                className="h-28 w-28 inline-block object-contain -mx-5"
-              />
-              <span className="text-emerald-500">Nlist Planet</span>
+            <h2 className="text-5xl font-bold text-gray-800 mb-4">
+              Why Choose <span className="text-emerald-500">Nlist Planet</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               India's most trusted platform for unlisted shares trading with transparency, security, and innovation
@@ -394,18 +388,18 @@ const HomePage = () => {
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-12 mb-12">
             <div className="col-span-1">
-              <div className="flex items-center gap-2 mb-4">
+              <div className="flex flex-col items-center gap-3 mb-6">
                 <img 
                   src="/images/logos/new_logo.png" 
                   alt="Nlist Planet Logo" 
-                  className="h-12 w-12 object-contain"
+                  className="h-20 w-20 object-contain transform hover:scale-110 transition-transform duration-300"
                 />
-                <h3 className="text-2xl font-bold">
+                <h3 className="text-xl font-bold text-center">
                   <span className="text-white">Nlist</span>
                   <span className="text-emerald-400"> Planet</span>
                 </h3>
               </div>
-              <p className="text-gray-400 text-sm leading-relaxed">
+              <p className="text-gray-400 text-sm leading-relaxed text-center">
                 India's most trusted platform for buying and selling unlisted shares with complete transparency and security.
               </p>
               <div className="flex gap-4 mt-6">
@@ -506,9 +500,6 @@ const HomePage = () => {
                 <a href="https://nlistplanet.com/privacy" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-emerald-400 transition-colors duration-300 text-sm">Privacy Policy</a>
                 <a href="https://nlistplanet.com/terms" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-emerald-400 transition-colors duration-300 text-sm">Terms of Service</a>
                 <a href="https://nlistplanet.com/cookies" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-emerald-400 transition-colors duration-300 text-sm">Cookie Policy</a>
-                <button onClick={() => navigate(user ? '/dashboard' : '/login')} className="bg-gradient-to-r from-purple-600 to-emerald-600 text-white px-6 py-2 rounded-full font-bold hover:shadow-lg hover:scale-105 transition-all duration-300">
-                  🔑 {user ? 'Dashboard' : 'Login / Sign Up'}
-                </button>
               </div>
             </div>
           </div>
