@@ -399,16 +399,16 @@ const HomePage = () => {
             <div className="col-span-1">
               <div className="flex flex-col items-center gap-4 mb-6 w-fit mx-auto">
                 <div className="relative float-animate group">
-                  {/* Subtle outer glow */}
-                  <div className="absolute -inset-2 bg-emerald-500/8 rounded-xl blur-lg opacity-40 group-hover:opacity-60 transition-opacity duration-500"></div>
+                  {/* Reduced outer glow */}
+                  <div className="absolute -inset-1 bg-emerald-500/5 rounded-2xl blur-md opacity-30 group-hover:opacity-50 transition-opacity duration-500"></div>
                   
-                  {/* Logo container with gradient border */}
-                  <div className="relative bg-gradient-to-br from-emerald-500 via-teal-400 to-cyan-500 p-[2px] rounded-xl shadow-lg">
-                    <div className="bg-gray-900 rounded-xl p-3">
+                  {/* Rectangle logo container with gradient border */}
+                  <div className="relative bg-gradient-to-br from-emerald-500 via-teal-400 to-cyan-500 p-[2px] rounded-2xl shadow-lg">
+                    <div className="bg-gray-900 rounded-2xl px-8 py-4">
                       <img
                         src="/images/logos/new_logo.png"
                         alt="Nlist Planet Logo"
-                        className="h-20 w-20 object-contain"
+                        className="h-24 w-24 object-contain"
                       />
                     </div>
                   </div>

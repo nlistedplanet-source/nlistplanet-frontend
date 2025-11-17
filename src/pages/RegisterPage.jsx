@@ -89,10 +89,11 @@ const RegisterPage = () => {
         initial={{ x: -50, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="hidden lg:flex flex-1 items-center justify-center bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50 relative overflow-hidden"
+        className="hidden lg:flex flex-1 items-center justify-center bg-gradient-to-br from-emerald-500/10 via-teal-500/10 to-cyan-500/10 relative overflow-hidden"
       >
-        <div className="absolute -top-32 -left-20 w-96 h-96 bg-emerald-200/40 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-0 w-[28rem] h-[28rem] bg-cyan-200/40 rounded-full blur-3xl" />
+        <div className="absolute -top-32 -left-20 w-96 h-96 bg-gradient-to-br from-emerald-400/30 to-teal-400/30 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-0 right-0 w-[28rem] h-[28rem] bg-gradient-to-tr from-cyan-400/30 to-emerald-400/30 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-r from-teal-300/20 to-cyan-300/20 rounded-full blur-2xl" />
         <motion.div 
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -110,38 +111,40 @@ const RegisterPage = () => {
         <style>{`
           .floating-label-wrap { position: relative; }
           .floating-label-wrap input::placeholder { color: transparent; }
-          .floating-label { position:absolute; left:1rem; top:50%; transform:translateY(-50%); font-size:0.8rem; color:#6b7280; pointer-events:none; transition:all .15s ease; }
+          .floating-label { position:absolute; left:1rem; top:50%; transform:translateY(-50%); font-size:0.8rem; color:#6b7280; pointer-events:none; transition:all .2s ease; }
           .floating-with-icon { padding-left:3rem; }
           .floating-label-wrap input:focus + .floating-label,
-          .floating-label-wrap input:not(:placeholder-shown) + .floating-label { top:0.45rem; left:1rem; font-size:0.60rem; font-weight:600; letter-spacing:.5px; color:#111827; background:#fff; padding:0 4px; border-radius:4px; }
+          .floating-label-wrap input:not(:placeholder-shown) + .floating-label { top:0.45rem; left:1rem; font-size:0.60rem; font-weight:600; letter-spacing:.5px; color:#059669; background:#fff; padding:0 4px; border-radius:4px; }
+          .glass-card { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.3); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08); }
         `}</style>
-        <motion.h1 
+        <motion.div
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5 }}
-          className="text-2xl font-semibold text-gray-800 mb-6"
+          className="mb-8"
         >
-          Create your account
-        </motion.h1>
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">Get started</h1>
+          <p className="text-gray-500">Create your account to start trading</p>
+        </motion.div>
         {/* Register Form */}
         <motion.form 
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.1 }}
           onSubmit={handleSubmit} 
-          className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm space-y-4 max-h-[75vh] overflow-y-auto"
+          className="glass-card rounded-2xl p-8 space-y-4 max-h-[75vh] overflow-y-auto"
         >
           <div className="space-y-4">
             {/* Username */}
             <div className="floating-label-wrap">
-              <User className="absolute left-4 top-1/2 -translate-y-1/2 text-dark-400" size={20} />
+              <User className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 transition-colors" size={20} />
               <input
                 type="text"
                 name="username"
                 value={formData.username}
                 onChange={handleChange}
                 placeholder="username (lowercase)"
-                className={`input-mobile floating-with-icon ${errors.username ? 'border-red-500' : ''}`}
+                className={`w-full px-4 py-3 floating-with-icon bg-white border-2 ${errors.username ? 'border-red-500' : 'border-gray-200'} rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all duration-200`}
                 required
               />
               <label className="floating-label">Username</label>
@@ -156,7 +159,7 @@ const RegisterPage = () => {
                 value={formData.fullName}
                 onChange={handleChange}
                 placeholder="Your full name"
-                className={`input-mobile ${errors.fullName ? 'border-red-500' : ''}`}
+                className={`w-full px-4 py-3 bg-white border-2 ${errors.fullName ? 'border-red-500' : 'border-gray-200'} rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all duration-200`}
                 required
               />
               <label className="floating-label">Full Name</label>
@@ -165,14 +168,14 @@ const RegisterPage = () => {
 
             {/* Email */}
             <div className="floating-label-wrap">
-              <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-dark-400" size={20} />
+              <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 transition-colors" size={20} />
               <input
                 type="email"
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="email"
-                className={`input-mobile floating-with-icon ${errors.email ? 'border-red-500' : ''}`}
+                className={`w-full px-4 py-3 floating-with-icon bg-white border-2 ${errors.email ? 'border-red-500' : 'border-gray-200'} rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all duration-200`}
                 required
               />
               <label className="floating-label">Email</label>
@@ -181,14 +184,14 @@ const RegisterPage = () => {
 
             {/* Phone */}
             <div className="floating-label-wrap">
-              <Phone className="absolute left-4 top-1/2 -translate-y-1/2 text-dark-400" size={20} />
+              <Phone className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 transition-colors" size={20} />
               <input
                 type="tel"
                 name="phone"
                 value={formData.phone}
                 onChange={handleChange}
                 placeholder="10-digit mobile number"
-                className={`input-mobile floating-with-icon ${errors.phone ? 'border-red-500' : ''}`}
+                className={`w-full px-4 py-3 floating-with-icon bg-white border-2 ${errors.phone ? 'border-red-500' : 'border-gray-200'} rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all duration-200`}
                 maxLength="10"
                 required
               />
@@ -198,21 +201,21 @@ const RegisterPage = () => {
 
             {/* Password */}
             <div className="floating-label-wrap">
-              <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-dark-400" size={20} />
+              <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 transition-colors" size={20} />
               <input
                 type={showPassword ? 'text' : 'password'}
                 name="password"
                 value={formData.password}
                 onChange={handleChange}
                 placeholder="Minimum 6 characters"
-                className={`input-mobile floating-with-icon pr-12 ${errors.password ? 'border-red-500' : ''}`}
+                className={`w-full px-4 py-3 floating-with-icon pr-12 bg-white border-2 ${errors.password ? 'border-red-500' : 'border-gray-200'} rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all duration-200`}
                 required
               />
               <label className="floating-label">Password</label>
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-4 top-1/2 -translate-y-1/2 text-dark-400"
+                className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors"
               >
                 {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
               </button>
@@ -221,14 +224,14 @@ const RegisterPage = () => {
 
             {/* Confirm Password */}
             <div className="floating-label-wrap">
-              <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-dark-400" size={20} />
+              <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 transition-colors" size={20} />
               <input
                 type={showPassword ? 'text' : 'password'}
                 name="confirmPassword"
                 value={formData.confirmPassword}
                 onChange={handleChange}
                 placeholder="Re-enter password"
-                className={`input-mobile floating-with-icon ${errors.confirmPassword ? 'border-red-500' : ''}`}
+                className={`w-full px-4 py-3 floating-with-icon bg-white border-2 ${errors.confirmPassword ? 'border-red-500' : 'border-gray-200'} rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all duration-200`}
                 required
               />
               <label className="floating-label">Confirm Password</label>
@@ -237,14 +240,14 @@ const RegisterPage = () => {
 
             {/* Referral Code (Optional) */}
             <div className="floating-label-wrap">
-              <Gift className="absolute left-4 top-1/2 -translate-y-1/2 text-dark-400" size={20} />
+              <Gift className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 transition-colors" size={20} />
               <input
                 type="text"
                 name="referredBy"
                 value={formData.referredBy}
                 onChange={handleChange}
                 placeholder="Enter referral code"
-                className="input-mobile floating-with-icon"
+                className="w-full px-4 py-3 floating-with-icon bg-white border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all duration-200"
               />
               <label className="floating-label">Referral Code (Optional)</label>
             </div>
@@ -254,7 +257,7 @@ const RegisterPage = () => {
           <button
             type="submit"
             disabled={loading}
-            className="w-full btn-mobile btn-primary mt-6 flex items-center justify-center gap-2"
+            className="w-full py-3.5 rounded-xl font-semibold text-base bg-gradient-to-r from-emerald-500 to-teal-600 text-white hover:from-emerald-600 hover:to-teal-700 focus:ring-4 focus:ring-emerald-500/20 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 shadow-lg shadow-emerald-500/25 hover:shadow-xl hover:shadow-emerald-500/30 flex items-center justify-center gap-2 mt-6"
           >
             {loading ? (
               <>
