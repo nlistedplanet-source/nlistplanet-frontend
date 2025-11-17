@@ -54,7 +54,7 @@ const TopBar = ({ title, showBack = false }) => {
                 <img 
                   src="/images/logos/nlist_logo.svg" 
                   alt="Nlist Planet" 
-                  className="h-16 w-auto object-contain"
+                  className="h-32 w-auto object-contain"
                 />
               </button>
             )}

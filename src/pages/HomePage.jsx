@@ -32,9 +32,9 @@ const HomePage = () => {
   }, [charIndex, isDeleting, wordIndex, words]);
 
   return (
-    <div>
+    <div className="min-h-screen">
       {/* Hero Section */}
-      <div className="bg-gradient-to-br from-teal-50 via-cyan-50 to-emerald-50 pt-6 md:pt-8 pb-12 px-8 min-h-screen flex flex-col justify-between relative overflow-hidden">
+      <div className="bg-gradient-to-br from-teal-50 via-cyan-50 to-emerald-50 pt-6 md:pt-8 pb-12 px-8 flex flex-col justify-between relative overflow-hidden" style={{minHeight: '85vh'}}>
         <div className="absolute top-20 right-10 w-64 h-64 bg-emerald-200 rounded-full opacity-20 blur-3xl"></div>
         <div className="absolute bottom-20 left-10 w-96 h-96 bg-teal-200 rounded-full opacity-20 blur-3xl"></div>
         
@@ -314,7 +314,7 @@ const HomePage = () => {
               <img 
                 src="/images/logos/new_logo.png" 
                 alt="Nlist Planet" 
-                className="h-16 w-16 object-contain"
+                className="h-24 w-24 object-contain"
               />
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -387,11 +387,11 @@ const HomePage = () => {
       </div>
 
       {/* Footer Section */}
-      <footer className="bg-gradient-to-r from-gray-900 to-gray-800 text-white py-16 mt-0">
+      <footer className="bg-gradient-to-r from-gray-900 to-gray-800 text-white py-16">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-12 mb-12">
             <div className="col-span-1">
-              <div className="flex flex-col items-center gap-3 mb-6">
+              <div className="flex flex-col items-center gap-3 mb-6 bg-gradient-to-br from-gray-800 to-gray-700 p-8 rounded-2xl shadow-[0_0_30px_rgba(16,185,129,0.3)] hover:shadow-[0_0_50px_rgba(16,185,129,0.6)] transition-all duration-300">
                 <img 
                   src="/images/logos/new_logo.png" 
                   alt="Nlist Planet Logo" 
@@ -401,7 +401,7 @@ const HomePage = () => {
               <p className="text-gray-400 text-sm leading-relaxed text-center">
                 India's most trusted platform for buying and selling unlisted shares with complete transparency and security.
               </p>
-              <div className="flex gap-4 mt-6">
+              <div className="flex gap-4 mt-6 justify-center">
                 <a href="https://www.facebook.com/nlistplanet" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-gray-700 hover:bg-emerald-500 rounded-full flex items-center justify-center transition-all duration-300">
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
