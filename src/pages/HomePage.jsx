@@ -4,7 +4,6 @@ import { useAuth } from '../context/AuthContext';
 
 const HomePage = () => {
   const navigate = useNavigate();
-  const { user } = useAuth();
   const [displayText, setDisplayText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
   const [wordIndex, setWordIndex] = useState(0);
