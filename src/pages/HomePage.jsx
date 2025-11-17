@@ -399,23 +399,17 @@ const HomePage = () => {
             <div className="col-span-1">
               <div className="flex flex-col items-center gap-4 mb-6 w-fit mx-auto">
                 <div className="relative float-animate group">
-                  {/* Outer glow */}
-                  <div className="absolute -inset-4 bg-gradient-to-r from-emerald-500/20 via-teal-400/20 to-cyan-500/20 rounded-2xl blur-2xl opacity-60 group-hover:opacity-100 transition-opacity duration-700"></div>
+                  {/* Subtle outer glow */}
+                  <div className="absolute -inset-2 bg-emerald-500/8 rounded-xl blur-lg opacity-40 group-hover:opacity-60 transition-opacity duration-500"></div>
                   
-                  {/* Glassmorphism card */}
-                  <div className="relative backdrop-blur-xl bg-white/5 rounded-2xl p-4 border border-white/10 shadow-2xl">
-                    {/* Shimmer effect overlay */}
-                    <div className="absolute inset-0 rounded-2xl shimmer-bg bg-gradient-to-r from-transparent via-white/5 to-transparent"></div>
-                    
-                    {/* Logo container */}
-                    <div className="relative bg-gradient-to-br from-emerald-500 via-teal-400 to-cyan-500 p-[2px] rounded-xl shadow-[0_8px_32px_rgba(16,185,129,0.3)] group-hover:shadow-[0_12px_48px_rgba(16,185,129,0.5)] transition-all duration-500">
-                      <div className="bg-gray-900 rounded-xl p-3">
-                        <img
-                          src="/images/logos/new_logo.png"
-                          alt="Nlist Planet Logo"
-                          className="h-16 w-16 object-contain drop-shadow-[0_0_12px_rgba(16,185,129,0.6)]"
-                        />
-                      </div>
+                  {/* Logo container with gradient border */}
+                  <div className="relative bg-gradient-to-br from-emerald-500 via-teal-400 to-cyan-500 p-[2px] rounded-xl shadow-lg">
+                    <div className="bg-gray-900 rounded-xl p-3">
+                      <img
+                        src="/images/logos/new_logo.png"
+                        alt="Nlist Planet Logo"
+                        className="h-16 w-16 object-contain"
+                      />
                     </div>
                   </div>
                 </div>
