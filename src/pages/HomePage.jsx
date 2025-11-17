@@ -397,13 +397,13 @@ const HomePage = () => {
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-12 mb-12">
             <div className="col-span-1">
-              <div className="flex flex-col items-center gap-5 mb-6 w-fit mx-auto">
+              <div className="flex flex-col items-center gap-4 mb-6 w-fit mx-auto">
                 <div className="relative float-animate group">
-                  {/* Ambient outer glow */}
-                  <div className="absolute -inset-8 bg-gradient-to-r from-emerald-500/15 via-teal-500/15 to-emerald-500/15 rounded-full blur-3xl opacity-50 group-hover:opacity-70 transition-all duration-700 animate-pulse"></div>
+                  {/* Compact outer glow */}
+                  <div className="absolute -inset-4 bg-gradient-to-r from-emerald-500/15 via-teal-500/15 to-emerald-500/15 rounded-full blur-2xl opacity-40 group-hover:opacity-60 transition-all duration-700"></div>
                   
-                  {/* Main logo container - sleek modern card */}
-                  <div className="relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-[#1a1f2e] via-[#0f1419] to-[#1a1f2e] p-12 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.5)] border border-white/5">
+                  {/* Compact logo container - minimal padding */}
+                  <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#1a1f2e] via-[#0f1419] to-[#1a1f2e] p-6 shadow-[0_15px_40px_-10px_rgba(0,0,0,0.5)] border border-white/5">
                     {/* Animated gradient background */}
                     <div className="absolute inset-0 bg-gradient-to-tr from-emerald-500/10 via-transparent to-teal-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     
@@ -412,18 +412,18 @@ const HomePage = () => {
                       <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-transparent via-white/5 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
                     </div>
                     
-                    {/* Logo with enhanced glow */}
+                    {/* Larger logo in compact box */}
                     <img
                       src="/images/logos/new_logo.png"
                       alt="Nlist Planet Logo"
-                      className="h-24 w-24 object-contain relative z-10 drop-shadow-[0_0_20px_rgba(16,185,129,0.4)] group-hover:drop-shadow-[0_0_30px_rgba(16,185,129,0.6)] transition-all duration-300"
+                      className="h-20 w-20 object-contain relative z-10 drop-shadow-[0_0_20px_rgba(16,185,129,0.4)] group-hover:drop-shadow-[0_0_30px_rgba(16,185,129,0.6)] transition-all duration-300"
                     />
                   </div>
                 </div>
 
                 <div className="text-center space-y-1">
-                  <div className="text-white font-bold text-lg tracking-wide">Nlist Planet</div>
-                  <div className="text-emerald-400 text-sm font-medium">Trusted Unlisted Shares</div>
+                  <div className="text-white font-bold text-base tracking-wide">Nlist Planet</div>
+                  <div className="text-emerald-400 text-xs font-medium">Trusted Unlisted Shares</div>
                 </div>
               </div>
               <p className="text-gray-400 text-sm leading-relaxed text-center">
