@@ -388,34 +388,41 @@ const HomePage = () => {
 
       {/* Footer Section */}
       <style>{`
-        @keyframes rotateSlow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-        @keyframes pulseSlow { 0% { transform: scale(1); } 50% { transform: scale(1.04); } 100% { transform: scale(1); } }
-        .rotate-pulse { animation: rotateSlow 12s linear infinite, pulseSlow 3.6s ease-in-out infinite; }
+        @keyframes floatSlow { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-8px); } }
+        @keyframes shimmer { 0% { background-position: -200% center; } 100% { background-position: 200% center; } }
+        .float-animate { animation: floatSlow 4s ease-in-out infinite; }
+        .shimmer-bg { background-size: 200% auto; animation: shimmer 8s linear infinite; }
       `}</style>
       <footer className="bg-gradient-to-r from-gray-900 to-gray-800 text-white py-16">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-12 mb-12">
             <div className="col-span-1">
-              <div className="flex flex-col items-center gap-2 mb-4 p-2 rounded-2xl bg-[#071018] border border-gray-800/40 shadow-lg w-fit mx-auto group transform transition-all duration-300 hover:scale-105">
-                <div className="relative rotate-pulse">
-                  {/* soft ambient glow behind the badge (subtle) */}
-                  <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-emerald-500/6 to-teal-400/6 filter blur-lg opacity-40 transition-opacity duration-500"></div>
-
-                  {/* main square badge with reduced size */}
-                  <div className="relative rounded-lg p-2 bg-black/20 backdrop-blur-sm border border-emerald-500/6 flex items-center justify-center transition-transform duration-500">
-                    <div className="rounded-lg p-1 bg-gradient-to-br from-emerald-600 to-teal-400 shadow-[0_8px_20px_rgba(16,185,129,0.10)]">
-                      <img
-                        src="/images/logos/new_logo.png"
-                        alt="Nlist Planet Logo"
-                        className="h-14 w-14 object-contain"
-                      />
+              <div className="flex flex-col items-center gap-4 mb-6 w-fit mx-auto">
+                <div className="relative float-animate group">
+                  {/* Outer glow */}
+                  <div className="absolute -inset-4 bg-gradient-to-r from-emerald-500/20 via-teal-400/20 to-cyan-500/20 rounded-2xl blur-2xl opacity-60 group-hover:opacity-100 transition-opacity duration-700"></div>
+                  
+                  {/* Glassmorphism card */}
+                  <div className="relative backdrop-blur-xl bg-white/5 rounded-2xl p-4 border border-white/10 shadow-2xl">
+                    {/* Shimmer effect overlay */}
+                    <div className="absolute inset-0 rounded-2xl shimmer-bg bg-gradient-to-r from-transparent via-white/5 to-transparent"></div>
+                    
+                    {/* Logo container */}
+                    <div className="relative bg-gradient-to-br from-emerald-500 via-teal-400 to-cyan-500 p-[2px] rounded-xl shadow-[0_8px_32px_rgba(16,185,129,0.3)] group-hover:shadow-[0_12px_48px_rgba(16,185,129,0.5)] transition-all duration-500">
+                      <div className="bg-gray-900 rounded-xl p-3">
+                        <img
+                          src="/images/logos/new_logo.png"
+                          alt="Nlist Planet Logo"
+                          className="h-16 w-16 object-contain drop-shadow-[0_0_12px_rgba(16,185,129,0.6)]"
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
 
                 <div className="text-center">
-                  <div className="text-white font-semibold text-sm tracking-wider">Nlist Planet</div>
-                  <div className="text-gray-400 text-xs">Trusted Unlisted Shares</div>
+                  <div className="text-white font-bold text-base tracking-wide mb-1">Nlist Planet</div>
+                  <div className="text-emerald-400 text-xs font-medium">Trusted Unlisted Shares</div>
                 </div>
               </div>
               <p className="text-gray-400 text-sm leading-relaxed text-center">
