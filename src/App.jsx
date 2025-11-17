@@ -11,6 +11,7 @@ import MarketplacePage from './pages/MarketplacePage';
 import DashboardPage from './pages/DashboardPage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
+import ForgotPasswordPage from './pages/ForgotPasswordPage';
 import AdminDashboard from './pages/AdminDashboard';
 
 // Components
@@ -38,9 +39,9 @@ function AppContent() {
   const location = useLocation();
   const [showBottomNav, setShowBottomNav] = useState(true);
 
-  // Hide bottom nav on login/register pages
+  // Hide bottom nav on login/register/forgot-password pages
   useEffect(() => {
-    const hideNavPaths = ['/login', '/register'];
+    const hideNavPaths = ['/login', '/register', '/forgot-password'];
     const path = window.location.pathname;
     setShowBottomNav(!hideNavPaths.includes(path));
   }, []);
@@ -61,6 +62,7 @@ function AppContent() {
           <Route path="/marketplace" element={<MarketplacePage />} />
           <Route path="/login" element={user ? <Navigate to="/dashboard" /> : <LoginPage />} />
           <Route path="/register" element={user ? <Navigate to="/dashboard" /> : <RegisterPage />} />
+          <Route path="/forgot-password" element={user ? <Navigate to="/dashboard" /> : <ForgotPasswordPage />} />
           
           {/* Protected Routes */}
           <Route 

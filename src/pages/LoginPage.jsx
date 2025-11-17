@@ -63,10 +63,10 @@ const LoginPage = () => {
         <style>{`
           .floating-label-wrap { position: relative; }
           .floating-label-wrap input::placeholder { color: transparent; }
-          .floating-label { position:absolute; left:3rem; top:50%; transform:translateY(-50%); font-size:0.8rem; color:#6b7280; pointer-events:none; transition:all .2s ease; }
+          .floating-label { position:absolute; left:3rem; top:50%; transform:translateY(-50%); font-size:0.8rem; color:#6b7280; pointer-events:none; transition:all .2s ease; z-index:1; }
           .floating-label-wrap input:focus + .floating-label,
           .floating-label-wrap input:not(:placeholder-shown) + .floating-label { top:0.45rem; left:3rem; font-size:0.60rem; font-weight:600; letter-spacing:.5px; color:#059669; background:#fff; padding:0 4px; border-radius:4px; }
-          .floating-label-wrap input:focus ~ .input-icon { color: #10b981 !important; }
+          .floating-label-wrap:focus-within .input-icon { color: #10b981 !important; }
           .glass-card { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.3); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08); }
         `}</style>
         <motion.div
