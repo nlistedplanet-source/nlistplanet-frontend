@@ -399,18 +399,19 @@ const HomePage = () => {
             <div className="col-span-1">
               <div className="flex flex-col items-center gap-4 mb-6 w-fit mx-auto">
                 <div className="relative float-animate group">
-                  {/* Reduced outer glow */}
-                  <div className="absolute -inset-1 bg-emerald-500/5 rounded-2xl blur-md opacity-30 group-hover:opacity-50 transition-opacity duration-500"></div>
+                  {/* Outer glow effect - matching sample */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/20 via-teal-500/20 to-cyan-500/20 rounded-3xl blur-2xl opacity-40 group-hover:opacity-60 transition-opacity duration-700"></div>
                   
-                  {/* Rectangle logo container with gradient border */}
-                  <div className="relative bg-gradient-to-br from-emerald-500 via-teal-400 to-cyan-500 p-[2px] rounded-2xl shadow-lg">
-                    <div className="bg-gray-900 rounded-2xl px-8 py-4">
-                      <img
-                        src="/images/logos/new_logo.png"
-                        alt="Nlist Planet Logo"
-                        className="h-24 w-24 object-contain"
-                      />
-                    </div>
+                  {/* Dark card with rounded corners like sample */}
+                  <div className="relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-3xl p-10 shadow-2xl border border-gray-700/50">
+                    {/* Inner subtle glow */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-transparent rounded-3xl"></div>
+                    
+                    <img
+                      src="/images/logos/new_logo.png"
+                      alt="Nlist Planet Logo"
+                      className="h-20 w-20 object-contain relative z-10 drop-shadow-[0_0_15px_rgba(16,185,129,0.3)]"
+                    />
                   </div>
                 </div>
 
