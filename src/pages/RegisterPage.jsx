@@ -3,6 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { User, Mail, Lock, Phone, Eye, EyeOff, UserPlus, Gift } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { validateUsername, validateEmail, validatePhone } from '../utils/helpers';
+import { motion } from 'framer-motion';
 
 const RegisterPage = () => {
   const navigate = useNavigate();
@@ -84,15 +85,25 @@ const RegisterPage = () => {
   return (
     <div className="min-h-screen bg-white flex">
       {/* Illustration Section */}
-      <div className="hidden lg:flex flex-1 items-center justify-center bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50 relative overflow-hidden">
+      <motion.div 
+        initial={{ x: -50, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="hidden lg:flex flex-1 items-center justify-center bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50 relative overflow-hidden"
+      >
         <div className="absolute -top-32 -left-20 w-96 h-96 bg-emerald-200/40 rounded-full blur-3xl" />
         <div className="absolute bottom-0 right-0 w-[28rem] h-[28rem] bg-cyan-200/40 rounded-full blur-3xl" />
-        <div className="relative z-10 max-w-sm text-center space-y-6 px-8">
+        <motion.div 
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+          className="relative z-10 max-w-sm text-center space-y-6 px-8"
+        >
           <img src="/images/logos/herolaptop.png" alt="Illustration" className="w-full max-w-xs mx-auto drop-shadow-xl" />
           <h2 className="text-3xl font-bold text-gray-800">Join Nlist Planet</h2>
-          <p className="text-gray-600 text-sm leading-relaxed">Create an account to access India’s trusted unlisted marketplace. List, bid and manage your portfolio with ease.</p>
-        </div>
-      </div>
+          <p className="text-gray-600 text-sm leading-relaxed">Create an account to access India's trusted unlisted marketplace. List, bid and manage your portfolio with ease.</p>
+        </motion.div>
+      </motion.div>
 
       {/* Form Section */}
       <div className="w-full lg:max-w-md mx-auto flex flex-col justify-center px-6 py-12">
@@ -104,9 +115,22 @@ const RegisterPage = () => {
           .floating-label-wrap input:focus + .floating-label,
           .floating-label-wrap input:not(:placeholder-shown) + .floating-label { top:0.45rem; left:1rem; font-size:0.60rem; font-weight:600; letter-spacing:.5px; color:#111827; background:#fff; padding:0 4px; border-radius:4px; }
         `}</style>
-        <h1 className="text-2xl font-semibold text-gray-800 mb-6">Create your account</h1>
+        <motion.h1 
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          className="text-2xl font-semibold text-gray-800 mb-6"
+        >
+          Create your account
+        </motion.h1>
         {/* Register Form */}
-        <form onSubmit={handleSubmit} className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm space-y-4 max-h-[75vh] overflow-y-auto">
+        <motion.form 
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          onSubmit={handleSubmit} 
+          className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm space-y-4 max-h-[75vh] overflow-y-auto"
+        >
           <div className="space-y-4">
             {/* Username */}
             <div className="floating-label-wrap">
@@ -262,7 +286,7 @@ const RegisterPage = () => {
           >
             Login Instead
           </Link>
-        </form>
+        </motion.form>
       </div>
     </div>
   );
