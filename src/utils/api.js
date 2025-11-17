@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 const API_URL = process.env.REACT_APP_API_URL || 'https://nlistplanet-usm-backend.vercel.app/api';
+export const BASE_API_URL = API_URL;
 
-// Configure axios
 axios.defaults.baseURL = API_URL;
 
 if (!process.env.REACT_APP_API_URL) {
