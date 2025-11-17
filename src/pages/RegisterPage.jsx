@@ -82,45 +82,50 @@ const RegisterPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-primary-600 to-primary-800 flex items-center justify-center px-4 py-12">
-      <div className="w-full max-w-md">
-        {/* Logo */}
-        <div className="text-center mb-8">
-          <div className="inline-block bg-white rounded-2xl px-6 py-3 mb-4">
-            <span className="text-primary-600 font-bold text-3xl">USM</span>
-          </div>
-          <h1 className="text-3xl font-bold text-white mb-2">Create Account</h1>
-          <p className="text-primary-100">Join UnlistedHub marketplace today</p>
+    <div className="min-h-screen bg-white flex">
+      {/* Illustration Section */}
+      <div className="hidden lg:flex flex-1 items-center justify-center bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50 relative overflow-hidden">
+        <div className="absolute -top-32 -left-20 w-96 h-96 bg-emerald-200/40 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-0 w-[28rem] h-[28rem] bg-cyan-200/40 rounded-full blur-3xl" />
+        <div className="relative z-10 max-w-sm text-center space-y-6 px-8">
+          <img src="/images/logos/herolaptop.png" alt="Illustration" className="w-full max-w-xs mx-auto drop-shadow-xl" />
+          <h2 className="text-3xl font-bold text-gray-800">Join Nlist Planet</h2>
+          <p className="text-gray-600 text-sm leading-relaxed">Create an account to access India’s trusted unlisted marketplace. List, bid and manage your portfolio with ease.</p>
         </div>
+      </div>
 
+      {/* Form Section */}
+      <div className="w-full lg:max-w-md mx-auto flex flex-col justify-center px-6 py-12">
+        <style>{`
+          .floating-label-wrap { position: relative; }
+          .floating-label-wrap input::placeholder { color: transparent; }
+          .floating-label { position:absolute; left:1rem; top:50%; transform:translateY(-50%); font-size:0.8rem; color:#6b7280; pointer-events:none; transition:all .15s ease; }
+          .floating-with-icon { padding-left:3rem; }
+          .floating-label-wrap input:focus + .floating-label,
+          .floating-label-wrap input:not(:placeholder-shown) + .floating-label { top:0.45rem; left:1rem; font-size:0.60rem; font-weight:600; letter-spacing:.5px; color:#111827; background:#fff; padding:0 4px; border-radius:4px; }
+        `}</style>
+        <h1 className="text-2xl font-semibold text-gray-800 mb-6">Create your account</h1>
         {/* Register Form */}
-        <form onSubmit={handleSubmit} className="bg-white rounded-3xl p-6 shadow-2xl max-h-[70vh] overflow-y-auto">
+        <form onSubmit={handleSubmit} className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm space-y-4 max-h-[75vh] overflow-y-auto">
           <div className="space-y-4">
             {/* Username */}
-            <div>
-              <label className="block text-sm font-semibold text-dark-700 mb-2">
-                Username <span className="text-red-500">*</span>
-              </label>
-              <div className="relative">
-                <User className="absolute left-4 top-1/2 -translate-y-1/2 text-dark-400" size={20} />
-                <input
-                  type="text"
-                  name="username"
-                  value={formData.username}
-                  onChange={handleChange}
-                  placeholder="username (lowercase)"
-                  className={`input-mobile pl-12 ${errors.username ? 'border-red-500' : ''}`}
-                  required
-                />
-              </div>
+            <div className="floating-label-wrap">
+              <User className="absolute left-4 top-1/2 -translate-y-1/2 text-dark-400" size={20} />
+              <input
+                type="text"
+                name="username"
+                value={formData.username}
+                onChange={handleChange}
+                placeholder="username (lowercase)"
+                className={`input-mobile floating-with-icon ${errors.username ? 'border-red-500' : ''}`}
+                required
+              />
+              <label className="floating-label">Username</label>
               {errors.username && <p className="text-red-500 text-xs mt-1">{errors.username}</p>}
             </div>
 
             {/* Full Name */}
-            <div>
-              <label className="block text-sm font-semibold text-dark-700 mb-2">
-                Full Name <span className="text-red-500">*</span>
-              </label>
+            <div className="floating-label-wrap">
               <input
                 type="text"
                 name="fullName"
@@ -130,113 +135,94 @@ const RegisterPage = () => {
                 className={`input-mobile ${errors.fullName ? 'border-red-500' : ''}`}
                 required
               />
+              <label className="floating-label">Full Name</label>
               {errors.fullName && <p className="text-red-500 text-xs mt-1">{errors.fullName}</p>}
             </div>
 
             {/* Email */}
-            <div>
-              <label className="block text-sm font-semibold text-dark-700 mb-2">
-                Email <span className="text-red-500">*</span>
-              </label>
-              <div className="relative">
-                <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-dark-400" size={20} />
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="your@email.com"
-                  className={`input-mobile pl-12 ${errors.email ? 'border-red-500' : ''}`}
-                  required
-                />
-              </div>
+            <div className="floating-label-wrap">
+              <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-dark-400" size={20} />
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="email"
+                className={`input-mobile floating-with-icon ${errors.email ? 'border-red-500' : ''}`}
+                required
+              />
+              <label className="floating-label">Email</label>
               {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
             </div>
 
             {/* Phone */}
-            <div>
-              <label className="block text-sm font-semibold text-dark-700 mb-2">
-                Phone Number <span className="text-red-500">*</span>
-              </label>
-              <div className="relative">
-                <Phone className="absolute left-4 top-1/2 -translate-y-1/2 text-dark-400" size={20} />
-                <input
-                  type="tel"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  placeholder="10-digit mobile number"
-                  className={`input-mobile pl-12 ${errors.phone ? 'border-red-500' : ''}`}
-                  maxLength="10"
-                  required
-                />
-              </div>
+            <div className="floating-label-wrap">
+              <Phone className="absolute left-4 top-1/2 -translate-y-1/2 text-dark-400" size={20} />
+              <input
+                type="tel"
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
+                placeholder="10-digit mobile number"
+                className={`input-mobile floating-with-icon ${errors.phone ? 'border-red-500' : ''}`}
+                maxLength="10"
+                required
+              />
+              <label className="floating-label">Phone Number</label>
               {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone}</p>}
             </div>
 
             {/* Password */}
-            <div>
-              <label className="block text-sm font-semibold text-dark-700 mb-2">
-                Password <span className="text-red-500">*</span>
-              </label>
-              <div className="relative">
-                <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-dark-400" size={20} />
-                <input
-                  type={showPassword ? 'text' : 'password'}
-                  name="password"
-                  value={formData.password}
-                  onChange={handleChange}
-                  placeholder="Minimum 6 characters"
-                  className={`input-mobile pl-12 pr-12 ${errors.password ? 'border-red-500' : ''}`}
-                  required
-                />
-                <button
-                  type="button"
-                  onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 text-dark-400"
-                >
-                  {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
-                </button>
-              </div>
+            <div className="floating-label-wrap">
+              <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-dark-400" size={20} />
+              <input
+                type={showPassword ? 'text' : 'password'}
+                name="password"
+                value={formData.password}
+                onChange={handleChange}
+                placeholder="Minimum 6 characters"
+                className={`input-mobile floating-with-icon pr-12 ${errors.password ? 'border-red-500' : ''}`}
+                required
+              />
+              <label className="floating-label">Password</label>
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute right-4 top-1/2 -translate-y-1/2 text-dark-400"
+              >
+                {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+              </button>
               {errors.password && <p className="text-red-500 text-xs mt-1">{errors.password}</p>}
             </div>
 
             {/* Confirm Password */}
-            <div>
-              <label className="block text-sm font-semibold text-dark-700 mb-2">
-                Confirm Password <span className="text-red-500">*</span>
-              </label>
-              <div className="relative">
-                <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-dark-400" size={20} />
-                <input
-                  type={showPassword ? 'text' : 'password'}
-                  name="confirmPassword"
-                  value={formData.confirmPassword}
-                  onChange={handleChange}
-                  placeholder="Re-enter password"
-                  className={`input-mobile pl-12 ${errors.confirmPassword ? 'border-red-500' : ''}`}
-                  required
-                />
-              </div>
+            <div className="floating-label-wrap">
+              <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-dark-400" size={20} />
+              <input
+                type={showPassword ? 'text' : 'password'}
+                name="confirmPassword"
+                value={formData.confirmPassword}
+                onChange={handleChange}
+                placeholder="Re-enter password"
+                className={`input-mobile floating-with-icon ${errors.confirmPassword ? 'border-red-500' : ''}`}
+                required
+              />
+              <label className="floating-label">Confirm Password</label>
               {errors.confirmPassword && <p className="text-red-500 text-xs mt-1">{errors.confirmPassword}</p>}
             </div>
 
             {/* Referral Code (Optional) */}
-            <div>
-              <label className="block text-sm font-semibold text-dark-700 mb-2">
-                Referral Code (Optional)
-              </label>
-              <div className="relative">
-                <Gift className="absolute left-4 top-1/2 -translate-y-1/2 text-dark-400" size={20} />
-                <input
-                  type="text"
-                  name="referredBy"
-                  value={formData.referredBy}
-                  onChange={handleChange}
-                  placeholder="Enter referral code"
-                  className="input-mobile pl-12"
-                />
-              </div>
+            <div className="floating-label-wrap">
+              <Gift className="absolute left-4 top-1/2 -translate-y-1/2 text-dark-400" size={20} />
+              <input
+                type="text"
+                name="referredBy"
+                value={formData.referredBy}
+                onChange={handleChange}
+                placeholder="Enter referral code"
+                className="input-mobile floating-with-icon"
+              />
+              <label className="floating-label">Referral Code (Optional)</label>
             </div>
           </div>
 
@@ -277,14 +263,6 @@ const RegisterPage = () => {
             Login Instead
           </Link>
         </form>
-
-        {/* Back to Home */}
-        <button
-          onClick={() => navigate('/')}
-          className="w-full mt-4 text-white text-center py-3"
-        >
-          ← Back to Home
-        </button>
       </div>
     </div>
   );

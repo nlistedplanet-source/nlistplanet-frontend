@@ -34,61 +34,64 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white flex items-center justify-center px-4 py-12">
-      <div className="w-full max-w-md">
-        {/* Brand */}
-        <div className="text-center mb-8">
-          <img src="/images/logos/new_logo.png" alt="Nlist Planet" className="h-12 w-12 object-contain mx-auto mb-3" />
-          <h1 className="text-3xl font-bold text-dark-800 mb-1">Welcome back</h1>
-          <p className="text-dark-500">Login to your account</p>
+    <div className="min-h-screen bg-white flex">
+      {/* Illustration Section */}
+      <div className="hidden lg:flex flex-1 items-center justify-center bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50 relative overflow-hidden">
+        <div className="absolute -top-32 -left-20 w-96 h-96 bg-emerald-200/40 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-0 w-[28rem] h-[28rem] bg-cyan-200/40 rounded-full blur-3xl" />
+        <div className="relative z-10 max-w-sm text-center space-y-6 px-8">
+          <img src="/images/logos/herolaptop.png" alt="Illustration" className="w-full max-w-xs mx-auto drop-shadow-xl" />
+          <h2 className="text-3xl font-bold text-gray-800">Trade Smarter</h2>
+          <p className="text-gray-600 text-sm leading-relaxed">Access India's trusted unlisted marketplace. Monitor bids, manage your holdings and discover emerging opportunities.</p>
         </div>
+      </div>
 
-        {/* Login Form */}
-        <form onSubmit={handleSubmit} className="bg-white rounded-2xl p-6 border border-dark-100 shadow-md">
+      {/* Form Section */}
+      <div className="w-full lg:max-w-md mx-auto flex flex-col justify-center px-6 py-12">
+        <style>{`
+          .floating-label-wrap { position: relative; }
+          .floating-label-wrap input::placeholder { color: transparent; }
+          .floating-label { position:absolute; left:3rem; top:50%; transform:translateY(-50%); font-size:0.8rem; color:#6b7280; pointer-events:none; transition:all .15s ease; }
+          .floating-label-wrap input:focus + .floating-label,
+          .floating-label-wrap input:not(:placeholder-shown) + .floating-label { top:0.45rem; left:3rem; font-size:0.60rem; font-weight:600; letter-spacing:.5px; color:#111827; background:#fff; padding:0 4px; border-radius:4px; }
+        `}</style>
+        <h1 className="text-2xl font-semibold text-gray-800 mb-6">Sign in to your account</h1>
+        <form onSubmit={handleSubmit} className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm space-y-5">
           <div className="space-y-4">
-            {/* Username/Email */}
-            <div>
-              <label className="block text-sm font-semibold text-dark-700 mb-2">
-                Username or Email
-              </label>
-              <div className="relative">
-                <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-dark-400" size={20} />
-                <input
-                  type="text"
-                  name="username"
-                  value={formData.username}
-                  onChange={handleChange}
-                  placeholder="Enter username or email"
-                  className="input-mobile pl-12"
-                  required
-                />
-              </div>
+            {/* Username / Email */}
+            <div className="floating-label-wrap">
+              <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={20} />
+              <input
+                type="text"
+                name="username"
+                value={formData.username}
+                onChange={handleChange}
+                placeholder="Username or Email"
+                className="input-mobile pl-12"
+                required
+              />
+              <label className="floating-label" htmlFor="username">Username or Email</label>
             </div>
-
             {/* Password */}
-            <div>
-              <label className="block text-sm font-semibold text-dark-700 mb-2">
-                Password
-              </label>
-              <div className="relative">
-                <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-dark-400" size={20} />
-                <input
-                  type={showPassword ? 'text' : 'password'}
-                  name="password"
-                  value={formData.password}
-                  onChange={handleChange}
-                  placeholder="Enter your password"
-                  className="input-mobile pl-12 pr-12"
-                  required
-                />
-                <button
-                  type="button"
-                  onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 text-dark-400"
-                >
-                  {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
-                </button>
-              </div>
+            <div className="floating-label-wrap">
+              <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={20} />
+              <input
+                type={showPassword ? 'text' : 'password'}
+                name="password"
+                value={formData.password}
+                onChange={handleChange}
+                placeholder="Password"
+                className="input-mobile pl-12 pr-12"
+                required
+              />
+              <label className="floating-label" htmlFor="password">Password</label>
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400"
+              >
+                {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+              </button>
             </div>
           </div>
 
@@ -111,32 +114,11 @@ const LoginPage = () => {
             )}
           </button>
 
-          {/* Divider */}
-          <div className="relative my-6">
-            <div className="absolute inset-0 flex items-center">
-              <div className="w-full border-t border-dark-200" />
-            </div>
-            <div className="relative flex justify-center text-sm">
-              <span className="px-4 bg-white text-dark-500">Don't have an account?</span>
-            </div>
+          <div className="flex items-center justify-between mt-4">
+            <Link to="/register" className="text-sm text-emerald-600 hover:text-emerald-700 font-medium">Create account</Link>
+            <Link to="/" className="text-sm text-gray-500 hover:text-gray-700">Home</Link>
           </div>
-
-          {/* Register Link */}
-          <Link
-            to="/register"
-            className="block w-full btn-mobile btn-secondary text-center"
-          >
-            Create New Account
-          </Link>
         </form>
-
-        {/* Back to Home */}
-        <button
-          onClick={() => navigate('/')}
-          className="w-full mt-4 text-dark-500 hover:text-dark-700 text-center py-3"
-        >
-          ← Back to Home
-        </button>
       </div>
     </div>
   );
