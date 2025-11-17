@@ -12,7 +12,6 @@ const RegisterPage = () => {
     username: '',
     email: '',
     password: '',
-    confirmPassword: '',
     fullName: '',
     phone: '',
     referredBy: ''
@@ -49,10 +48,6 @@ const RegisterPage = () => {
       newErrors.password = 'Password must be at least 6 characters';
     }
 
-    if (formData.password !== formData.confirmPassword) {
-      newErrors.confirmPassword = 'Passwords do not match';
-    }
-
     if (!formData.fullName || formData.fullName.length < 3) {
       newErrors.fullName = 'Full name must be at least 3 characters';
     }
@@ -72,8 +67,7 @@ const RegisterPage = () => {
 
     setLoading(true);
 
-    const { confirmPassword, ...registrationData } = formData;
-    const success = await register(registrationData);
+    const success = await register(formData);
 
     if (success) {
       navigate('/dashboard');
@@ -84,12 +78,12 @@ const RegisterPage = () => {
 
   return (
     <div className="min-h-screen bg-white flex">
-      {/* Illustration Section */}
+      {/* Illustration Section - 60% */}
       <motion.div 
         initial={{ x: -50, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="hidden lg:flex flex-1 items-center justify-center bg-gradient-to-br from-emerald-500/10 via-teal-500/10 to-cyan-500/10 relative overflow-hidden"
+        className="hidden lg:flex lg:w-[60%] items-center justify-center bg-gradient-to-br from-emerald-500/10 via-teal-500/10 to-cyan-500/10 relative overflow-hidden"
       >
         <div className="absolute -top-32 -left-20 w-96 h-96 bg-gradient-to-br from-emerald-400/30 to-teal-400/30 rounded-full blur-3xl animate-pulse" />
         <div className="absolute bottom-0 right-0 w-[28rem] h-[28rem] bg-gradient-to-tr from-cyan-400/30 to-emerald-400/30 rounded-full blur-3xl" />
@@ -106,15 +100,17 @@ const RegisterPage = () => {
         </motion.div>
       </motion.div>
 
-      {/* Form Section */}
-      <div className="w-full lg:max-w-md mx-auto flex flex-col justify-center px-6 py-12">
+      {/* Form Section - 40% */}
+      <div className="w-full lg:w-[40%] mx-auto flex flex-col justify-center px-6 py-12">
         <style>{`
           .floating-label-wrap { position: relative; }
           .floating-label-wrap input::placeholder { color: transparent; }
-          .floating-label { position:absolute; left:1rem; top:50%; transform:translateY(-50%); font-size:0.8rem; color:#6b7280; pointer-events:none; transition:all .2s ease; }
+          .floating-label { position:absolute; left:3rem; top:50%; transform:translateY(-50%); font-size:0.8rem; color:#6b7280; pointer-events:none; transition:all .2s ease; z-index:1; }
+          .floating-label-no-icon { left:1rem; }
           .floating-with-icon { padding-left:3rem; }
           .floating-label-wrap input:focus + .floating-label,
-          .floating-label-wrap input:not(:placeholder-shown) + .floating-label { top:0.45rem; left:1rem; font-size:0.60rem; font-weight:600; letter-spacing:.5px; color:#059669; background:#fff; padding:0 4px; border-radius:4px; }
+          .floating-label-wrap input:not(:placeholder-shown) + .floating-label { top:0.45rem; font-size:0.60rem; font-weight:600; letter-spacing:.5px; color:#059669; background:#fff; padding:0 4px; border-radius:4px; }
+          .floating-label-wrap input:focus ~ .input-icon { color: #10b981 !important; }
           .glass-card { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.3); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08); }
         `}</style>
         <motion.div
@@ -132,12 +128,12 @@ const RegisterPage = () => {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.1 }}
           onSubmit={handleSubmit} 
-          className="glass-card rounded-2xl p-8 space-y-4 max-h-[75vh] overflow-y-auto"
+          className="glass-card rounded-2xl p-6 space-y-3 max-h-[75vh] overflow-y-auto"
         >
-          <div className="space-y-4">
+          <div className="space-y-3">
             {/* Username */}
             <div className="floating-label-wrap">
-              <User className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 transition-colors" size={20} />
+              <User className="input-icon absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 transition-colors" size={20} />
               <input
                 type="text"
                 name="username"
@@ -162,13 +158,13 @@ const RegisterPage = () => {
                 className={`w-full px-4 py-3 bg-white border-2 ${errors.fullName ? 'border-red-500' : 'border-gray-200'} rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all duration-200`}
                 required
               />
-              <label className="floating-label">Full Name</label>
+              <label className="floating-label floating-label-no-icon">Full Name</label>
               {errors.fullName && <p className="text-red-500 text-xs mt-1">{errors.fullName}</p>}
             </div>
 
             {/* Email */}
             <div className="floating-label-wrap">
-              <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 transition-colors" size={20} />
+              <Mail className="input-icon absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 transition-colors" size={20} />
               <input
                 type="email"
                 name="email"
@@ -184,7 +180,7 @@ const RegisterPage = () => {
 
             {/* Phone */}
             <div className="floating-label-wrap">
-              <Phone className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 transition-colors" size={20} />
+              <Phone className="input-icon absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 transition-colors" size={20} />
               <input
                 type="tel"
                 name="phone"
@@ -201,7 +197,7 @@ const RegisterPage = () => {
 
             {/* Password */}
             <div className="floating-label-wrap">
-              <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 transition-colors" size={20} />
+              <Lock className="input-icon absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 transition-colors" size={20} />
               <input
                 type={showPassword ? 'text' : 'password'}
                 name="password"
@@ -222,25 +218,9 @@ const RegisterPage = () => {
               {errors.password && <p className="text-red-500 text-xs mt-1">{errors.password}</p>}
             </div>
 
-            {/* Confirm Password */}
-            <div className="floating-label-wrap">
-              <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 transition-colors" size={20} />
-              <input
-                type={showPassword ? 'text' : 'password'}
-                name="confirmPassword"
-                value={formData.confirmPassword}
-                onChange={handleChange}
-                placeholder="Re-enter password"
-                className={`w-full px-4 py-3 floating-with-icon bg-white border-2 ${errors.confirmPassword ? 'border-red-500' : 'border-gray-200'} rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all duration-200`}
-                required
-              />
-              <label className="floating-label">Confirm Password</label>
-              {errors.confirmPassword && <p className="text-red-500 text-xs mt-1">{errors.confirmPassword}</p>}
-            </div>
-
             {/* Referral Code (Optional) */}
             <div className="floating-label-wrap">
-              <Gift className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 transition-colors" size={20} />
+              <Gift className="input-icon absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 transition-colors" size={20} />
               <input
                 type="text"
                 name="referredBy"
@@ -285,7 +265,7 @@ const RegisterPage = () => {
           {/* Login Link */}
           <Link
             to="/login"
-            className="block w-full btn-mobile btn-secondary text-center"
+            className="block w-full py-3 rounded-xl font-semibold text-base bg-white text-emerald-600 border-2 border-emerald-500 hover:bg-emerald-50 focus:ring-4 focus:ring-emerald-500/20 transition-all duration-200 shadow-sm hover:shadow-md text-center"
           >
             Login Instead
           </Link>

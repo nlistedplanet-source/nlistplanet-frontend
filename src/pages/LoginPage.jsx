@@ -36,12 +36,12 @@ const LoginPage = () => {
 
   return (
     <div className="min-h-screen bg-white flex">
-      {/* Illustration Section */}
+      {/* Illustration Section - 60% */}
       <motion.div 
         initial={{ x: -50, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="hidden lg:flex flex-1 items-center justify-center bg-gradient-to-br from-emerald-500/10 via-teal-500/10 to-cyan-500/10 relative overflow-hidden"
+        className="hidden lg:flex lg:w-[60%] items-center justify-center bg-gradient-to-br from-emerald-500/10 via-teal-500/10 to-cyan-500/10 relative overflow-hidden"
       >
         <div className="absolute -top-32 -left-20 w-96 h-96 bg-gradient-to-br from-emerald-400/30 to-teal-400/30 rounded-full blur-3xl animate-pulse" />
         <div className="absolute bottom-0 right-0 w-[28rem] h-[28rem] bg-gradient-to-tr from-cyan-400/30 to-emerald-400/30 rounded-full blur-3xl" />
@@ -58,14 +58,15 @@ const LoginPage = () => {
         </motion.div>
       </motion.div>
 
-      {/* Form Section */}
-      <div className="w-full lg:max-w-md mx-auto flex flex-col justify-center px-6 py-12">
+      {/* Form Section - 40% */}
+      <div className="w-full lg:w-[40%] mx-auto flex flex-col justify-center px-6 py-12">
         <style>{`
           .floating-label-wrap { position: relative; }
           .floating-label-wrap input::placeholder { color: transparent; }
           .floating-label { position:absolute; left:3rem; top:50%; transform:translateY(-50%); font-size:0.8rem; color:#6b7280; pointer-events:none; transition:all .2s ease; }
           .floating-label-wrap input:focus + .floating-label,
           .floating-label-wrap input:not(:placeholder-shown) + .floating-label { top:0.45rem; left:3rem; font-size:0.60rem; font-weight:600; letter-spacing:.5px; color:#059669; background:#fff; padding:0 4px; border-radius:4px; }
+          .floating-label-wrap input:focus ~ .input-icon { color: #10b981 !important; }
           .glass-card { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.3); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08); }
         `}</style>
         <motion.div
@@ -87,7 +88,7 @@ const LoginPage = () => {
           <div className="space-y-5">
             {/* Username / Email */}
             <div className="floating-label-wrap">
-              <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 transition-colors" size={20} />
+              <Mail className="input-icon absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 transition-colors" size={20} />
               <input
                 type="text"
                 name="username"
@@ -101,7 +102,7 @@ const LoginPage = () => {
             </div>
             {/* Password */}
             <div className="floating-label-wrap">
-              <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 transition-colors" size={20} />
+              <Lock className="input-icon absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 transition-colors" size={20} />
               <input
                 type={showPassword ? 'text' : 'password'}
                 name="password"
@@ -120,6 +121,13 @@ const LoginPage = () => {
                 {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
               </button>
             </div>
+          </div>
+
+          {/* Forgot Password */}
+          <div className="text-right">
+            <Link to="/forgot-password" className="text-sm text-emerald-600 hover:text-emerald-700 font-medium transition-colors">
+              Forgot Password?
+            </Link>
           </div>
 
           {/* Login Button */}
@@ -154,10 +162,13 @@ const LoginPage = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="flex items-center justify-between"
           >
-            <Link to="/register" className="text-sm text-emerald-600 hover:text-emerald-700 font-semibold transition-colors">Create account →</Link>
-            <Link to="/" className="text-sm text-gray-500 hover:text-gray-700 transition-colors">← Home</Link>
+            <Link 
+              to="/register" 
+              className="w-full py-3 rounded-xl font-semibold text-base bg-white text-emerald-600 border-2 border-emerald-500 hover:bg-emerald-50 focus:ring-4 focus:ring-emerald-500/20 transition-all duration-200 shadow-sm hover:shadow-md flex items-center justify-center gap-2"
+            >
+              Create account →
+            </Link>
           </motion.div>
         </motion.form>
       </div>
