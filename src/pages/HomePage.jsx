@@ -387,17 +387,35 @@ const HomePage = () => {
       </div>
 
       {/* Footer Section */}
+      <style>{`
+        @keyframes rotateSlow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        @keyframes pulseSlow { 0% { transform: scale(1); } 50% { transform: scale(1.04); } 100% { transform: scale(1); } }
+        .rotate-pulse { animation: rotateSlow 12s linear infinite, pulseSlow 3.6s ease-in-out infinite; }
+      `}</style>
       <footer className="bg-gradient-to-r from-gray-900 to-gray-800 text-white py-16">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-12 mb-12">
             <div className="col-span-1">
-              <div className="flex flex-col items-center gap-3 mb-6 p-4 rounded-3xl bg-gradient-to-br from-[#071018] to-[#071622] border border-gray-800 shadow-lg w-fit mx-auto transform transition-transform duration-300 hover:scale-105">
-                <div className="rounded-full p-3 bg-gradient-to-tr from-emerald-500/10 to-teal-400/6 shadow-[0_8px_30px_rgba(16,185,129,0.08)] ring-1 ring-emerald-500/10 transition-all duration-300 hover:shadow-[0_16px_40px_rgba(16,185,129,0.12)]">
-                  <img
-                    src="/images/logos/new_logo.png"
-                    alt="Nlist Planet Logo"
-                    className="h-20 w-20 object-contain"
-                  />
+              <div className="flex flex-col items-center gap-2 mb-4 p-2 rounded-2xl bg-[#071018] border border-gray-800/40 shadow-lg w-fit mx-auto group transform transition-all duration-300 hover:scale-105">
+                <div className="relative rotate-pulse">
+                  {/* soft ambient glow behind the badge (subtle) */}
+                  <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-emerald-500/6 to-teal-400/6 filter blur-lg opacity-40 transition-opacity duration-500"></div>
+
+                  {/* main square badge with reduced size */}
+                  <div className="relative rounded-lg p-2 bg-black/20 backdrop-blur-sm border border-emerald-500/6 flex items-center justify-center transition-transform duration-500">
+                    <div className="rounded-lg p-1 bg-gradient-to-br from-emerald-600 to-teal-400 shadow-[0_8px_20px_rgba(16,185,129,0.10)]">
+                      <img
+                        src="/images/logos/new_logo.png"
+                        alt="Nlist Planet Logo"
+                        className="h-14 w-14 object-contain"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div className="text-center">
+                  <div className="text-white font-semibold text-sm tracking-wider">Nlist Planet</div>
+                  <div className="text-gray-400 text-xs">Trusted Unlisted Shares</div>
                 </div>
               </div>
               <p className="text-gray-400 text-sm leading-relaxed text-center">
