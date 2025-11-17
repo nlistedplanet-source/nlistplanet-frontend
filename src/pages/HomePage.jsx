@@ -391,11 +391,11 @@ const HomePage = () => {
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-12 mb-12">
             <div className="col-span-1">
-              <div className="flex flex-col items-center gap-3 mb-6 bg-gradient-to-br from-gray-800 to-gray-700 p-8 rounded-2xl shadow-[0_0_30px_rgba(16,185,129,0.3)] hover:shadow-[0_0_50px_rgba(16,185,129,0.6)] transition-all duration-300">
+              <div className="flex flex-col items-center gap-3 mb-6 bg-gradient-to-br from-gray-800 to-gray-700 p-6 rounded-2xl shadow-[0_0_20px_rgba(16,185,129,0.2)] hover:shadow-[0_0_35px_rgba(16,185,129,0.4)] transition-all duration-300 w-fit mx-auto">
                 <img 
                   src="/images/logos/new_logo.png" 
                   alt="Nlist Planet Logo" 
-                  className="h-32 w-32 object-contain transform hover:scale-110 transition-transform duration-300 filter drop-shadow-[0_0_15px_rgba(16,185,129,0.5)] hover:drop-shadow-[0_0_25px_rgba(16,185,129,0.8)]"
+                  className="h-32 w-32 object-contain transform hover:scale-110 transition-transform duration-300"
                 />
               </div>
               <p className="text-gray-400 text-sm leading-relaxed text-center">
