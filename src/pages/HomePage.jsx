@@ -403,7 +403,7 @@ const HomePage = () => {
                   <div className="absolute -inset-3 bg-gradient-to-r from-emerald-400/20 via-teal-400/20 to-emerald-400/20 rounded-2xl blur-xl opacity-30 group-hover:opacity-50 transition-all duration-700"></div>
                   
                   {/* Rectangle logo container with light background and reduced height */}
-                  <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-gray-100 via-white to-gray-50 px-3 py-1.5 shadow-[0_10px_30px_-5px_rgba(0,0,0,0.2)] border border-gray-200/50">
+                  <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-gray-100 via-white to-gray-50 px-6 py-3 shadow-[0_10px_30px_-5px_rgba(0,0,0,0.2)] border border-gray-200/50">
                     {/* Animated gradient background */}
                     <div className="absolute inset-0 bg-gradient-to-tr from-emerald-500/5 via-transparent to-teal-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     
@@ -416,7 +416,7 @@ const HomePage = () => {
                     <img
                       src="/images/logos/new_logo.png"
                       alt="Nlist Planet Logo"
-                      className="h-10 w-10 object-contain relative z-10 drop-shadow-[0_0_15px_rgba(16,185,129,0.3)] group-hover:drop-shadow-[0_0_25px_rgba(16,185,129,0.5)] transition-all duration-300"
+                      className="h-20 w-20 object-contain relative z-10 drop-shadow-[0_0_15px_rgba(16,185,129,0.3)] group-hover:drop-shadow-[0_0_25px_rgba(16,185,129,0.5)] transition-all duration-300"
                     />
                   </div>
                 </div>
