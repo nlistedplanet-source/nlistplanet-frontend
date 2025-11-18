@@ -36,7 +36,8 @@ const RegisterPage = () => {
   const validate = () => {
     const newErrors = {};
 
-    if (!validateUsername(formData.username)) {
+    // Username is optional, validate only if provided
+    if (formData.username && formData.username.trim() !== '' && !validateUsername(formData.username)) {
       newErrors.username = 'Username must be 3-20 characters, lowercase letters, numbers, and underscores only';
     }
 
@@ -131,22 +132,6 @@ const RegisterPage = () => {
           className="glass-card rounded-2xl p-6 space-y-3 max-h-[75vh] overflow-y-auto"
         >
           <div className="space-y-3">
-            {/* Username */}
-            <div className="floating-label-wrap">
-              <User className="input-icon absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 transition-colors" size={20} />
-              <input
-                type="text"
-                name="username"
-                value={formData.username}
-                onChange={handleChange}
-                placeholder="username (lowercase)"
-                className={`w-full px-4 py-3 floating-with-icon bg-white border-2 ${errors.username ? 'border-red-500' : 'border-gray-200'} rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all duration-200`}
-                required
-              />
-              <label className="floating-label">Username</label>
-              {errors.username && <p className="text-red-500 text-xs mt-1">{errors.username}</p>}
-            </div>
-
             {/* Full Name */}
             <div className="floating-label-wrap">
               <input

@@ -76,13 +76,13 @@ const TopBar = ({ title, showBack = false }) => {
               <button
                 onClick={() => navigate('/marketplace')}
                 title="Unlisted Shares Mall"
-                className={`px-3 py-2 rounded-lg font-medium text-sm transition-all duration-200 ${
+                className={`px-4 py-2 rounded-xl font-semibold text-sm transition-all duration-200 shadow-sm ${
                   location.pathname === '/marketplace'
-                    ? 'text-purple-700 bg-purple-50 border border-purple-100'
-                    : 'text-gray-700 hover:bg-gray-100 hover:text-gray-900'
+                    ? 'text-white bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 shadow-emerald-500/25'
+                    : 'text-gray-700 bg-white border border-gray-200 hover:bg-gray-50 hover:border-gray-300'
                 }`}
               >
-                USM
+                Unlist Mall
               </button>
               <a
                 href="https://nlistplanet.com/blog"
@@ -210,11 +210,11 @@ const TopBar = ({ title, showBack = false }) => {
               </button>
               <button
                 onClick={() => { navigate('/marketplace'); setShowMobileNav(false); }}
-                className={`w-full text-left px-3 py-2 rounded-lg font-medium text-sm ${
-                  location.pathname === '/marketplace' ? 'text-purple-700 bg-purple-50 border border-purple-100' : 'text-gray-700 hover:bg-gray-100'
+                className={`w-full text-left px-3 py-2 rounded-xl font-semibold text-sm shadow-sm ${
+                  location.pathname === '/marketplace' ? 'text-white bg-gradient-to-r from-emerald-500 to-teal-600' : 'text-gray-700 bg-white border border-gray-200 hover:bg-gray-50'
                 }`}
               >
-                USM
+                Unlist Mall
               </button>
               <a
                 href="https://nlistplanet.com/blog"
