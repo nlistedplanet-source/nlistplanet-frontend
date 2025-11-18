@@ -397,7 +397,7 @@ const HomePage = () => {
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-12 mb-12">
             <div className="col-span-1">
-              <div className="flex flex-col items-center mb-6 w-fit mx-auto">
+              <div className="flex flex-col items-center mb-2 w-fit mx-auto">
                 <div>
                   {/* Logo directly on footer, no effects, size increased by 20px */}
                   <img
@@ -407,7 +407,7 @@ const HomePage = () => {
                   />
                 </div>
               </div>
-              <p className="text-gray-400 text-sm leading-relaxed text-center">
+              <p className="text-gray-400 text-sm leading-relaxed text-center mt-2">
                 India's most trusted platform for buying and selling unlisted shares with complete transparency and security.
               </p>
               <div className="flex gap-4 mt-6 justify-center">
