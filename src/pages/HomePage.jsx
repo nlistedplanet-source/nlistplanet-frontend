@@ -397,22 +397,17 @@ const HomePage = () => {
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-12 mb-12">
             <div className="col-span-1">
-              <div className="flex flex-col items-center gap-4 mb-6 w-fit mx-auto">
+              <div className="flex flex-col items-center mb-6 w-fit mx-auto">
                 <div className="relative float-animate group">
                   {/* Logo directly on footer with glow */}
-                  <div className="absolute -inset-4 bg-gradient-to-r from-emerald-400/20 via-teal-400/20 to-emerald-400/20 rounded-full blur-2xl opacity-40 group-hover:opacity-60 transition-all duration-700 animate-pulse"></div>
+                  <div className="absolute -inset-3 bg-gradient-to-r from-emerald-400/20 via-teal-400/20 to-emerald-400/20 rounded-full blur-2xl opacity-40 group-hover:opacity-60 transition-all duration-700 animate-pulse"></div>
                   
-                  {/* Logo with 50% size increase: h-20 → h-30 */}
+                  {/* Logo 20% smaller: h-30 → h-24 */}
                   <img
                     src="/images/logos/new_logo.png"
                     alt="Nlist Planet Logo"
-                    className="h-30 w-30 object-contain relative z-10 drop-shadow-[0_0_20px_rgba(16,185,129,0.4)] group-hover:drop-shadow-[0_0_35px_rgba(16,185,129,0.6)] transition-all duration-300"
+                    className="h-24 w-24 object-contain relative z-10 drop-shadow-[0_0_20px_rgba(16,185,129,0.4)] group-hover:drop-shadow-[0_0_35px_rgba(16,185,129,0.6)] transition-all duration-300"
                   />
-                </div>
-
-                <div className="text-center space-y-1">
-                  <div className="text-white font-bold text-base tracking-wide">Nlist Planet</div>
-                  <div className="text-emerald-400 text-xs font-medium">Trusted Unlisted Shares</div>
                 </div>
               </div>
               <p className="text-gray-400 text-sm leading-relaxed text-center">
