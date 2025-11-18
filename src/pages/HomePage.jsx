@@ -398,15 +398,12 @@ const HomePage = () => {
           <div className="grid md:grid-cols-4 gap-12 mb-12">
             <div className="col-span-1">
               <div className="flex flex-col items-center mb-6 w-fit mx-auto">
-                <div className="relative float-animate group">
-                  {/* Logo directly on footer with glow */}
-                  <div className="absolute -inset-3 bg-gradient-to-r from-emerald-400/20 via-teal-400/20 to-emerald-400/20 rounded-full blur-2xl opacity-40 group-hover:opacity-60 transition-all duration-700 animate-pulse"></div>
-                  
-                  {/* Logo 20% smaller: h-30 → h-24 */}
+                <div>
+                  {/* Logo directly on footer, no effects, size increased by 20px */}
                   <img
                     src="/images/logos/new_logo.png"
                     alt="Nlist Planet Logo"
-                    className="h-24 w-24 object-contain relative z-10 drop-shadow-[0_0_20px_rgba(16,185,129,0.4)] group-hover:drop-shadow-[0_0_35px_rgba(16,185,129,0.6)] transition-all duration-300"
+                    className="h-32 w-32 object-contain"
                   />
                 </div>
               </div>
