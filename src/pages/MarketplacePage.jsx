@@ -86,63 +86,63 @@ const MarketplacePage = () => {
   return (
     <div className="min-h-screen pb-20 bg-gradient-to-br from-gray-50 via-white to-emerald-50">
       {/* Modern Header with Gradient */}
-      <div className="sticky top-16 bg-white/80 backdrop-blur-xl border-b border-gray-200/50 shadow-sm z-20">
-        <div className="px-4 py-4">
-          <div className="flex items-center justify-between mb-4">
+      <div className="sticky top-16 bg-white/70 backdrop-blur-xl border-b border-gray-200/30 shadow-lg z-20 rounded-b-2xl">
+        <div className="px-2 py-3 md:px-4 md:py-4">
+          <div className="flex items-center justify-between mb-3">
             <div>
-              <h1 className="text-2xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">Unlist Mall</h1>
-              <p className="text-sm text-gray-500 mt-1">Buy & Sell Unlisted Shares</p>
+              <h1 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">Unlist Mall</h1>
+              <p className="text-xs md:text-sm text-gray-500 mt-1">Buy & Sell Unlisted Shares</p>
             </div>
             {user && (
               <button
                 onClick={() => setShowCreateModal(true)}
-                className="bg-gradient-to-r from-emerald-500 to-teal-600 text-white px-5 py-2.5 rounded-xl font-semibold text-sm shadow-lg shadow-emerald-500/30 hover:shadow-xl hover:shadow-emerald-500/40 transition-all duration-300 flex items-center gap-2"
+                className="bg-gradient-to-r from-emerald-500 to-teal-600 text-white px-4 py-2 rounded-lg font-semibold text-xs md:text-sm shadow-md hover:shadow-lg transition-all duration-300 flex items-center gap-2"
               >
-                <Plus size={18} />
+                <Plus size={16} />
                 Create Listing
               </button>
             )}
           </div>
 
           {/* Search Bar */}
-          <div className="flex gap-2 mb-4">
+          <div className="flex gap-2 mb-3">
             <div className="flex-1 relative">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={20} />
+              <Search className="absolute left-2 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
               <input
                 type="text"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 onKeyPress={(e) => e.key === 'Enter' && handleSearch()}
                 placeholder="Search company..."
-                className="w-full pl-10 pr-4 py-3 bg-white border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all duration-200 shadow-sm"
+                className="w-full pl-8 pr-3 py-2 bg-white/80 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-400/20 focus:border-emerald-400 transition-all duration-200 shadow-sm text-sm"
               />
             </div>
             <button
               onClick={handleSearch}
-              className="bg-gradient-to-r from-emerald-500 to-teal-600 text-white px-5 rounded-xl hover:shadow-lg hover:shadow-emerald-500/30 transition-all duration-300"
+              className="bg-gradient-to-r from-emerald-500 to-teal-600 text-white px-3 py-2 rounded-lg hover:shadow-md transition-all duration-300 flex items-center"
             >
-              <Search size={20} />
+              <Search size={18} />
             </button>
           </div>
 
           {/* Tabs */}
-          <div className="flex gap-2 bg-gray-100 p-1 rounded-xl">
+          <div className="flex gap-2 bg-gray-100/70 p-1 rounded-lg shadow-sm">
             <button
               onClick={() => setActiveTab('sell')}
-              className={`flex-1 py-2.5 rounded-lg font-semibold transition-all duration-300 ${
+              className={`flex-1 py-2 rounded-md font-semibold text-xs md:text-sm transition-all duration-300 ${
                 activeTab === 'sell'
-                  ? 'bg-gradient-to-r from-emerald-500 to-teal-600 text-white shadow-lg shadow-emerald-500/30'
-                  : 'text-gray-600 hover:bg-white/70'
+                  ? 'bg-gradient-to-r from-emerald-500 to-teal-600 text-white shadow-md'
+                  : 'text-gray-600 hover:bg-white/80'
               }`}
             >
               SELL Posts
             </button>
             <button
               onClick={() => setActiveTab('buy')}
-              className={`flex-1 py-2.5 rounded-lg font-semibold transition-all duration-300 ${
+              className={`flex-1 py-2 rounded-md font-semibold text-xs md:text-sm transition-all duration-300 ${
                 activeTab === 'buy'
-                  ? 'bg-gradient-to-r from-purple-500 to-indigo-600 text-white shadow-lg shadow-purple-500/30'
-                  : 'text-gray-600 hover:bg-white/70'
+                  ? 'bg-gradient-to-r from-purple-500 to-indigo-600 text-white shadow-md'
+                  : 'text-gray-600 hover:bg-white/80'
               }`}
             >
               BUY Requests
@@ -150,13 +150,13 @@ const MarketplacePage = () => {
           </div>
 
           {/* Sort */}
-          <div className="flex items-center gap-2 mt-4 bg-white/70 backdrop-blur-sm p-3 rounded-xl border border-gray-200/50">
-            <Filter size={18} className="text-emerald-600" />
-            <span className="text-sm text-gray-700 font-semibold">Sort:</span>
+          <div className="flex items-center gap-2 mt-3 bg-white/80 backdrop-blur-sm p-2 rounded-lg border border-gray-200/30 shadow-sm">
+            <Filter size={16} className="text-emerald-600" />
+            <span className="text-xs md:text-sm text-gray-700 font-semibold">Sort:</span>
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
-              className="flex-1 px-3 py-2 bg-white border-2 border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all duration-200 font-medium text-gray-700"
+              className="flex-1 px-2 py-1 bg-white border border-gray-200 rounded text-xs md:text-sm focus:outline-none focus:ring-2 focus:ring-emerald-400/20 focus:border-emerald-400 transition-all duration-200 font-medium text-gray-700"
             >
               <option value="-createdAt">Latest First</option>
               <option value="createdAt">Oldest First</option>
