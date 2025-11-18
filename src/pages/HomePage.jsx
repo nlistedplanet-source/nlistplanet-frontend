@@ -399,26 +399,15 @@ const HomePage = () => {
             <div className="col-span-1">
               <div className="flex flex-col items-center gap-4 mb-6 w-fit mx-auto">
                 <div className="relative float-animate group">
-                  {/* Subtle outer glow */}
-                  <div className="absolute -inset-3 bg-gradient-to-r from-emerald-400/20 via-teal-400/20 to-emerald-400/20 rounded-2xl blur-xl opacity-30 group-hover:opacity-50 transition-all duration-700"></div>
+                  {/* Logo directly on footer with glow */}
+                  <div className="absolute -inset-4 bg-gradient-to-r from-emerald-400/20 via-teal-400/20 to-emerald-400/20 rounded-full blur-2xl opacity-40 group-hover:opacity-60 transition-all duration-700 animate-pulse"></div>
                   
-                  {/* Rectangle logo container with light background and reduced height */}
-                  <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-gray-100 via-white to-gray-50 px-6 py-3 shadow-[0_10px_30px_-5px_rgba(0,0,0,0.2)] border border-gray-200/50">
-                    {/* Animated gradient background */}
-                    <div className="absolute inset-0 bg-gradient-to-tr from-emerald-500/5 via-transparent to-teal-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    
-                    {/* Shine effect on hover */}
-                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-                      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-transparent via-white/30 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-                    </div>
-                    
-                    {/* Logo */}
-                    <img
-                      src="/images/logos/new_logo.png"
-                      alt="Nlist Planet Logo"
-                      className="h-20 w-20 object-contain relative z-10 drop-shadow-[0_0_15px_rgba(16,185,129,0.3)] group-hover:drop-shadow-[0_0_25px_rgba(16,185,129,0.5)] transition-all duration-300"
-                    />
-                  </div>
+                  {/* Logo with 50% size increase: h-20 → h-30 */}
+                  <img
+                    src="/images/logos/new_logo.png"
+                    alt="Nlist Planet Logo"
+                    className="h-30 w-30 object-contain relative z-10 drop-shadow-[0_0_20px_rgba(16,185,129,0.4)] group-hover:drop-shadow-[0_0_35px_rgba(16,185,129,0.6)] transition-all duration-300"
+                  />
                 </div>
 
                 <div className="text-center space-y-1">
