@@ -3,7 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { Mail, Lock, Eye, EyeOff, LogIn } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { motion } from 'framer-motion';
-import signHero from '../assets/sign_hero.png';
+import signinHero from '../assets/signin_hero.png';
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -53,7 +53,7 @@ const LoginPage = () => {
           transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
           className="relative z-10 max-w-sm text-center space-y-6 px-8"
         >
-          <img src={signHero} alt="Sign In Illustration" className="w-full max-w-xs mx-auto drop-shadow-xl" />
+          <img src={signinHero} alt="Sign In Illustration" className="w-full max-w-xs mx-auto drop-shadow-xl" />
           <h2 className="text-3xl font-bold text-gray-800">Trade Smarter</h2>
           <p className="text-gray-600 text-sm leading-relaxed">Access India's trusted unlisted marketplace. Monitor bids, manage your holdings and discover emerging opportunities.</p>
         </motion.div>
