@@ -8,7 +8,9 @@ import { AuthProvider, useAuth } from './context/AuthContext';
 // Pages
 import HomePage from './pages/HomePage';
 import MarketplacePage from './pages/MarketplacePage';
+import HowItWorksPage from './pages/HowItWorksPage';
 import DashboardPage from './pages/DashboardPage';
+import DashboardPreview from './pages/DashboardPreview';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import ForgotPasswordPage from './pages/ForgotPasswordPage';
@@ -39,9 +41,9 @@ function AppContent() {
   const location = useLocation();
   const [showBottomNav, setShowBottomNav] = useState(true);
 
-  // Hide bottom nav on login/register/forgot-password pages
+  // Hide bottom nav on login/register/forgot-password/dashboard-preview pages
   useEffect(() => {
-    const hideNavPaths = ['/login', '/register', '/forgot-password'];
+    const hideNavPaths = ['/login', '/register', '/forgot-password', '/dashboard-preview'];
     const path = window.location.pathname;
     setShowBottomNav(!hideNavPaths.includes(path));
   }, []);
@@ -56,10 +58,12 @@ function AppContent() {
       {showBottomNav && <TopBar />}
 
       {/* Main Content */}
-      <main className={location.pathname === '/' ? '' : 'pt-16'}>
+      <main className={location.pathname === '/' || location.pathname === '/dashboard-preview' ? '' : 'pt-16'}>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/marketplace" element={<MarketplacePage />} />
+          <Route path="/how-it-works" element={<HowItWorksPage />} />
+          <Route path="/dashboard-preview" element={<DashboardPreview />} />
           <Route path="/login" element={user ? <Navigate to="/dashboard" /> : <LoginPage />} />
           <Route path="/register" element={user ? <Navigate to="/dashboard" /> : <RegisterPage />} />
           <Route path="/forgot-password" element={user ? <Navigate to="/dashboard" /> : <ForgotPasswordPage />} />
