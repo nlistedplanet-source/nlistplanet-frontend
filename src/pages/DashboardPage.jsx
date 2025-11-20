@@ -20,9 +20,7 @@ import {
   Filter,
   Download,
   Eye,
-  ShoppingCart,
-  Mail,
-  Phone
+  ShoppingCart
 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import MyPostsTab from '../components/dashboard/MyPostsTab';
@@ -38,7 +36,7 @@ const DashboardPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [activeTab, setActiveTab] = useState(searchParams.get('tab') || 'overview');
 
-  // Mock portfolio data
+  // Mock portfolio data - Replace with real API data later
   const portfolioStats = {
     totalValue: 1250000,
     totalInvested: 950000,
@@ -48,7 +46,7 @@ const DashboardPage = () => {
     completedTrades: 12
   };
 
-  // Mock holdings
+  // Mock holdings - Replace with real API data later
   const holdings = [
     {
       id: 1,
@@ -96,7 +94,7 @@ const DashboardPage = () => {
     }
   ];
 
-  // Recent activities
+  // Recent activities - Replace with real API data later
   const recentActivities = [
     { id: 1, type: 'buy', company: 'Razorpay', amount: 15000, shares: 50, date: '2 days ago' },
     { id: 2, type: 'sell', company: 'Cred', amount: 45000, shares: 30, date: '5 days ago' },
@@ -144,7 +142,7 @@ const DashboardPage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-50 flex">
       {/* Left Sidebar Navigation */}
-      <aside className="w-64 bg-white border-r border-gray-200 fixed left-0 top-0 h-full overflow-y-auto hidden md:block">
+      <aside className="w-64 bg-white border-r border-gray-200 fixed left-0 top-0 h-full overflow-y-auto hidden md:block z-30">
         {/* User Profile - Compact */}
         <div className="p-4 border-b border-gray-100">
           <div className="flex items-center gap-2">
@@ -204,9 +202,9 @@ const DashboardPage = () => {
       </aside>
 
       {/* Main Content Area */}
-      <main className="flex-1 md:ml-64">
+      <main className="flex-1 md:ml-64 pb-20 md:pb-0">
         {/* Top Header */}
-        <header className="bg-white border-b border-gray-200 px-4 md:px-8 py-4 sticky top-0 z-10">
+        <header className="bg-white border-b border-gray-200 px-4 md:px-8 py-4 sticky top-0 z-20">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               <img src="/images/logos/favicon.png" alt="Logo" className="h-10 w-10" />
@@ -284,7 +282,7 @@ const DashboardPage = () => {
             </h3>
             <p className="text-sm text-gray-600">Active Listings</p>
             <div className="flex items-center gap-1 mt-2">
-              <button className="text-sm text-purple-600 font-medium hover:underline">View all →</button>
+              <button onClick={() => handleTabChange('posts')} className="text-sm text-purple-600 font-medium hover:underline">View all →</button>
             </div>
           </div>
 
@@ -480,43 +478,9 @@ const DashboardPage = () => {
               </button>
             </div>
 
-            {/* Broadcast Listings */}
+            {/* Broadcast Listings - Replace with real API data */}
             <div className="space-y-4">
-              {[1, 2, 3].map((item) => (
-                <div key={item} className="border border-gray-200 rounded-xl p-4 hover:shadow-md transition-shadow">
-                  <div className="flex items-start justify-between mb-3">
-                    <div className="flex items-center gap-3">
-                      <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-purple-100 to-indigo-100 flex items-center justify-center text-xl">
-                        🏢
-                      </div>
-                      <div>
-                        <h3 className="font-bold text-gray-900">Sample Company {item}</h3>
-                        <p className="text-sm text-gray-500">Posted by @user{item} • 2 hours ago</p>
-                      </div>
-                    </div>
-                    <span className={`px-3 py-1 rounded-full text-sm font-semibold ${item % 2 === 0 ? 'bg-green-100 text-green-700' : 'bg-blue-100 text-blue-700'}`}>
-                      {item % 2 === 0 ? 'SELL' : 'BUY'}
-                    </span>
-                  </div>
-                  <div className="grid grid-cols-3 gap-4 mb-3">
-                    <div>
-                      <p className="text-xs text-gray-500">Price per Share</p>
-                      <p className="font-bold text-gray-900">₹{(15000 * item).toLocaleString()}</p>
-                    </div>
-                    <div>
-                      <p className="text-xs text-gray-500">Quantity</p>
-                      <p className="font-bold text-gray-900">{50 * item} shares</p>
-                    </div>
-                    <div>
-                      <p className="text-xs text-gray-500">Min Lot</p>
-                      <p className="font-bold text-gray-900">{10 * item}</p>
-                    </div>
-                  </div>
-                  <button className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-4 py-2 rounded-lg font-semibold hover:shadow-lg transition-all">
-                    View Details
-                  </button>
-                </div>
-              ))}
+              <p className="text-center text-gray-500 py-8">No listings available at the moment</p>
             </div>
           </div>
         )}
